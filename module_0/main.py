@@ -9,7 +9,7 @@ def guessing_game(number):
 
     while predict != number:
         try_count += 1  # плюсуем попытку
-        step = step // 2 if step > 1 else step
+        step = round(step/2) if step > 1 else step
         predict = predict + step if number > predict else predict - step
 
         print('predict:', predict, 'step:', step)
