@@ -9,23 +9,11 @@ def guessing_game(number):
 
     while predict != number:
         try_count += 1  # плюсуем попытку
-        if number < predict:
-            # print(f"Угадываемое число меньше {predict} ")
-            if step//2 > 0:
-                step = step//2
-            else:
-                step = 1
-            predict = predict - step
+        step = step // 2 if step > 1 else step
+        predict = predict + step if number > predict else predict - step
 
-        else:
-            # print(f"Угадываемое число больше {predict} ")
-            if step//2 > 0:
-                step = step//2
-            else:
-                step = 1
-            predict = predict + step
+        print('predict:', predict, 'step:', step)
 
-    print(predict)
     print(f"Вы угадали число {number} за {try_count} попыток.")
     return try_count
 
